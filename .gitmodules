@@ -1,0 +1,3 @@
+[submodule "ratpack"]
+	path = ratpack
+	url = https://github.com/bleedingwolf/Ratpack.git
