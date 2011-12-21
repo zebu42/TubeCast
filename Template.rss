@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+
+        <author>${feed.author.asXml}</author>
+        <title>${feed.title.asXml}</title>
+        <link>${feed.link.asXml}</link>
+
+        <% feed.items.each { def item -> %>
+            <item>
+                <guid>${item.id.asXml}</guid>
+
+                <title>${item.title.asXml}</title>
+                <pubDate>${new Date(item.uploaded.value).format('EEE, d MMM y HH:mm:ss Z')}</pubDate>
+
+                <itunes:author>${item.uploader.asXml}</itunes:author>
+                <itunes:duration>${item.duration}</itunes:duration>
+
+                <itunes:keywords>${item.tags.join(', ').asXml}</itunes:keywords>
+                <itunes:subtitle>${item.description.asXml}</itunes:subtitle>
+
+                <enclosure url="http://localhost:4242/video/${item.id.asXml}.mp4" type="video/mp4" />
+            </item>
+        <% } %>
+
+    </channel>
+</rss>
