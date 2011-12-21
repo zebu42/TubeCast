@@ -15,6 +15,8 @@ import com.google.api.client.json.jackson.JacksonFactory
 import com.google.api.client.util.DateTime
 import com.google.api.client.util.Key
 
+version = 0.1
+
 maxResults = 999
 vidFormats = 18
 
